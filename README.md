@@ -1,4 +1,16 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) using the typescript template.
+
+# Application Description
+
+Build a simple weather app based on the OpenWeatherMap API (www.openweathermap.org/api).
+
+## Current Weather Page
+
+This page consists of the temperate for the user’s current location, determined by the browser, and the appropriate OpenWeatherMap icon representing the forecast weather conditions
+
+## Five day Forecast
+
+The page consists of the high and low temperatures for the next five days, based on the user’s current location. For each day, include the appropriate OpenWeatherMap icon representing the forecast weather conditions.
 
 ## Available Scripts
 
