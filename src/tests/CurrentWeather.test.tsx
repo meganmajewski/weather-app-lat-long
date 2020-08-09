@@ -6,9 +6,7 @@ const location: UserLocation = {
   lat: "4.40",
   lon: "5.00",
 } as UserLocation;
-const mockGetWeather = jest
-  .fn()
-  .mockImplementationOnce(() => Promise.resolve(""));
+const mockGetWeather = jest.fn().mockImplementation(() => Promise.resolve(""));
 jest.mock("axios-hooks", () => () => [
   {
     data: {
@@ -25,7 +23,6 @@ test("location data is read from context", () => {
       <CurrentWeather />
     </UserContext.Provider>
   );
-  // const lat = getByText(/4.4/i);
   expect(mockGetWeather).toHaveBeenCalledWith({
     params: {
       appid: "5c1af4026688449afa523c5f3ce4e335",
@@ -33,7 +30,6 @@ test("location data is read from context", () => {
       lon: location.lon,
     },
   });
-  // expect(lat).toBeInTheDocument();
 });
 
 test("current weather is displayed on the page", () => {

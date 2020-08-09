@@ -24,10 +24,10 @@ test("the app renders and navigation is possible", () => {
 
   fireEvent.click(getByText(/current weather/i));
 
-  // // check that the content changed to the new page
-  // expect(container.innerHTML).toMatch("Today's weather is:");
-  // fireEvent.click(getByText(/five day forecast/i));
+  // check that the content changed to the new page
+  expect(container.innerHTML).toMatch("Current Weather");
+  fireEvent.click(getByText(/five day forecast/i));
 
   // // check that the content changed to the new page
-  // expect(container.innerHTML).toMatch("The week ahead looks like:");
+  expect(container.innerHTML).toMatch("The Week Ahead");
 });

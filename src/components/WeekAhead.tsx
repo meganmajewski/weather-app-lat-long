@@ -55,9 +55,7 @@ export default function WeekAhead() {
     let formatData = convertToWeatherType();
     if (formatData) {
       formatData = formatData.slice(0, 5);
-      console.log(formatData);
       return (formatData as Weather[]).map((obj: Weather) => {
-        console.log("map", obj);
         return <WeatherByDay {...obj} />;
       });
     } else {
@@ -76,5 +74,5 @@ export default function WeekAhead() {
         </div>
       </>
     );
-  else return <div>ERROR</div>;
+  else return <div>The Week Ahead: ERROR</div>;
 }

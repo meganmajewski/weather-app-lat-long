@@ -15,9 +15,7 @@ function App() {
         <div id="main">
           <UserProvider>
             <Switch>
-              <Route path="/current-weather">
-                <CurrentWeather />
-              </Route>
+              <Route path="/current-weather" component={CurrentWeather} />
               <Route path="/five-day-forecast">
                 <WeekAhead />
               </Route>

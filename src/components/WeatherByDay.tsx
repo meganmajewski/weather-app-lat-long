@@ -14,7 +14,6 @@ export interface Weather {
 }
 export default function WeatherByDay(props: Weather) {
   function printCurrentWeather() {
-    console.log("test");
     return <div>Currently: {props.temp.current} K</div>;
   }
   function printEve() {

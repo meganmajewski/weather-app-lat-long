@@ -33,8 +33,7 @@ export default function CurrentWeather() {
           lon: location.lon,
           appid: "5c1af4026688449afa523c5f3ce4e335",
         },
-      });
-      //.catch((err) => console.log(err)); //show error somehow to user
+      }).catch((err) => console.log(err)); //show error somehow to user;
     }
   }, [location, getWeather]);
 
@@ -52,5 +51,5 @@ export default function CurrentWeather() {
   if (loading) return <div>loading....</div>;
   if (error) return <div>ERROR</div>;
   else if (data) return <>{formatAndPrintData()}</>;
-  else return <div>ERROR</div>;
+  else return <div>Current Weather: ERROR</div>;
 }
