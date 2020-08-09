@@ -1,6 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useCallback } from "react";
 import useAxios from "axios-hooks";
 import { useUserContext } from "./context/UserContext";
+import WeatherByDay, { Weather } from "./WeatherByDay";
 export interface UserLocation {
   lat: string;
   lon: string;
@@ -14,6 +15,11 @@ export default function CurrentWeather() {
     },
     { manual: true }
   );
+  const getUserLocation = useCallback(() => {
+    if (location.lon === undefined) {
+      updateUserLocation();
+    }
+  }, [location.lon, updateUserLocation]);
   //two use effects because this one runs only once
   useEffect(() => {
     getUserLocation();
@@ -27,30 +33,24 @@ export default function CurrentWeather() {
           lon: location.lon,
           appid: "5c1af4026688449afa523c5f3ce4e335",
         },
-      }).catch((err) => console.log(err)); //show error somehow to user
+      });
+      //.catch((err) => console.log(err)); //show error somehow to user
     }
   }, [location, getWeather]);
 
-  function getUserLocation() {
-    if (location.lon === undefined) {
-      updateUserLocation();
+  function formatAndPrintData() {
+    if (data.main.temp && data.weather[0].icon) {
+      let formatData: Weather = {
+        temp: { current: data.main.temp },
+        icon: data.weather[0].icon,
+      };
+      return <WeatherByDay {...formatData} />;
+    } else {
+      return <div>Something went wrong getting your current weather data</div>;
     }
   }
   if (loading) return <div>loading....</div>;
   if (error) return <div>ERROR</div>;
-  else if (data)
-    return (
-      <>
-        <div>
-          <div>Today's weather is:</div>
-          <img
-            src={` http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}
-          />
-          {data.weather[0].description}
-          <br />
-          Currently: {data.main.temp} K
-        </div>
-      </>
-    );
+  else if (data) return <>{formatAndPrintData()}</>;
   else return <div>ERROR</div>;
 }
