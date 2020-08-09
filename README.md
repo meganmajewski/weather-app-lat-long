@@ -12,6 +12,16 @@ This page consists of the temperate for the user’s current location, determine
 
 The page consists of the high and low temperatures for the next five days, based on the user’s current location. For each day, include the appropriate OpenWeatherMap icon representing the forecast weather conditions.
 
+## Architecture decisions
+
+- proxy
+  Because this is a 4 hour code challenge i decided to skip a middle/back end. I chose to proxy requests from my app to the open weather app through the proxy setting in package.json. If other end points are added a middlewear/back end client will be neccessary.
+
+* context and location data
+  The user's location data is stored in context as a global store and used by both pages.
+* Measurement Units
+  I chose to use the Fahrenheit conversion option from the open weather API. See their documentation[https://openweathermap.org/current#geo]
+
 ## Available Scripts
 
 In the project directory, you can run:
