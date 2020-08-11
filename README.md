@@ -21,12 +21,14 @@ The page consists of the high and low temperatures for the next five days, based
   The user's location data is stored in context as a global store and used by both pages.
 * Measurement Units
   I chose to use the Fahrenheit conversion option from the open weather API. See their documentation[https://openweathermap.org/current#geo]
+
 * The OpenWeatherMap API states that geolcation is an appropriate way to gain information, however regardless of what lat/long combination given it defaults to lat: 35.016 and long: 139.
+
 * According to the docs /forecast/daily has an optional param of cnt with a range from 1-16 however when using lat/long this also does not work properly.
 
-## API Notes
+# Getting Started
 
--
+In the root directory run `yarn install` to gather all dependencies before you are able to run any of the available scripts below.
 
 ## Available Scripts
 
